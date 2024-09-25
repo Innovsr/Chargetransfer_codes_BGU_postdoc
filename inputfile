@@ -1,0 +1,25 @@
+acc_don_thr  1 5 2
+dimer_ch_sp  0 1 
+mono1_ch_sp  0 1 
+mono2_ch_sp  0 1 
+inp          NH3-BH3.com
+opt_inp      yes
+mono_option  distance
+mono1_atom   4 1 2 3 4
+mono2_atom   4 5 6 7 8
+***********************************
+%chk=
+%nproc=8
+%mem=50gb
+#p  pbepbe 6-31g*   opt freq
+m1 0.0 0.0 0.50 -0.0000001
+di 0.0 0.0 0.0 -0.0000000
+m2 0.0 0.0 -0.50 -0.0000001
+***********************************
+run_gauss    g09
+run_cube     cubegen 1 density=scf
+grd_space  0.1
+run  simul
+run_fchk formchk
+orb_file   no
+mol        lin

@@ -1,0 +1,29 @@
+acc_don_thr  1 5 2                    # Sl. Number. of acceptor doner and the third atom | if U don't have any third atom out si                                               de of Z axis put '0' at its' place 
+dimer_ch_sp  0 1                      # Charge and Multiplicity of the dimer
+mono1_ch_sp  0 1                      # Charge and Multiplicity of the monomer1
+mono2_ch_sp  0 1                      # Charge and Multiplicity of the monomer1
+inp          NH3-BH3.com              # input file to feed the program molecular geometry | input file can be 
+                                        '.com' or '.log' or '.xyz' file
+opt_inp      yes                      # optimization of the input geometry | If U wish to optimize the input '.com' or '.xyz'
+                                        file then put 'yes' and program will take the optimized geometry from output log file.
+                                        otherwise put 'no'. If your input file is '.log' file it will be overlooked.
+mono_option  distance                 # Procedure of selecting monomer atoms | There are three possibilities 'distance', 'radius'
+                                        and 'user'
+mono1_atom   4 1 2 3 4                # If U put 'user' option in 'mono_option' then U have to put the sl. number. of the atoms.
+mono2_atom   4 5 6 7 8                  1st number will be the number of atoms and then the sl. numbers
+
+***********************************   # starting line of header and lower part of the dimer and monomers
+%chk=                                 # dont put any name of the '.chk' file | it will be automatically generated 
+%nproc=8                              # it will be directly copied and pasted in the dimer and monomers file
+%mem=50gb                             # it will be directly copied and pasted in the dimer and monomers file
+#p  pbepbe 6-31g*   opt freq          # it will be copied and pasted except 'opt' and 'freq' | 'nosym' and 'pop=full'
+                                        will be added automatically. dont put any gap between lines in this section
+m1 0.0 0.0 0.50 -0.0000001            # if U put 'genecp', 'gen' and 'charge' in the command line then this lines will be copied and
+di 0.0 0.0 0.0 -0.0000000               pasted | di for dimer .com file, m1 for monomer1 .com file and m2 for monomer2
+m2 0.0 0.0 -0.50 -0.0000001
+***********************************   # end of the section
+run_gauss    g09                      # command to run gaussian
+run_cube     cubegen 1 density=scf    # command to run cubgen
+grd_space  0.1                        # grid spacing depending what cubegrid will prepare
+run  simul                            # command to run gaussian simultaniously
+run_fchk formchk                      # command to run formchk

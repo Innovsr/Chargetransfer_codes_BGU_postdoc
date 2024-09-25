@@ -1,0 +1,6 @@
+mol   nl: NH3-BH3_dimer.log nl: NH3-BH3_mono1.log nl: NH3-BH3_mono2.log  # The input log files to get the orbital coefficients 
+                                                                           which U required to study the MO s | 'nl:' for complex 
+                                                                           molecules and put 'l:' for relatively simple molecule
+cent_at_no  1 5 1 1                                                      # Sl. numbers of the atoms in dimer and monomers, U wish to 
+                                                                           study the MOs related to whom | 1st two numbers are for 
+                                                                           dimer and the last are for monomers

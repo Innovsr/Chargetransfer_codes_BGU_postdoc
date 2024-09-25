@@ -1,0 +1,6 @@
+oct_di  
+oct_m1 
+oct_m2
+run_cub_oct cubegen 1 MO=
+mol   nl: NH3-BH3_dimer.log nl: NH3-BH3_mono1.log nl: NH3-BH3_mono2.log
+cent_at_no  1 5 1 1

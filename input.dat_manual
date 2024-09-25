@@ -1,0 +1,9 @@
+oct_di p 4 5 8 9                # Sl. Number of MO s to generate or read | 'P' for Pi MOs, 's' for Sigma, 'd' for delta, 'v' for
+oct_m1 p 3 4                      valence and 'a' for all MOs | 'oct_di' for dimer MOs and other two are monomers
+oct_m2 p 3 4
+HFT_dim1m2 R R R                # HF calculation type | 'R' for restricted and 'U' for unrestricted
+IhaveMOs    yes                 # If U already generated MOs then put 'yes' and code only read them | if U put 'no' then code run the 
+                                  cubegen to generate MOs and after that will read.
+run_cub_oct cubegen 1 MO=       # command to run cubegen
+dimer_inp    NH3-BH3_dimer.log  # inputfile file from where code get the optimized geometry 
+grd_space  0.1                  # grid spacing
